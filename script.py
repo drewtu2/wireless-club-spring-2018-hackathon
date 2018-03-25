@@ -1,0 +1,11 @@
+import face_recognition
+
+known_image = face_recognition.load_image_file("data/dan.JPG")
+unknown_image = face_recognition.load_image_file("data/both.JPG")
+
+biden_encoding = face_recognition.face_encodings(known_image)
+unknown_encoding = face_recognition.face_encodings(unknown_image)
+
+results = face_recognition.compare_faces([biden_encoding], unknown_encoding)
+
+print(results)
